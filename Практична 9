@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int minSteps(int x, int y) {
+    int dist = y - x;
+    int step = 0;
+    long long moved = 0;
+
+    while (moved < dist) {
+        step++;
+        int half = step / 2;
+        moved = (long long)(half + 1) * (step - half);
+    }
+
+    return step;
+}
+
+int main() {
+    int x, y;
+    scanf("%d %d", &x, &y);
+    printf("%d\n", minSteps(x, y));
+    return 0;
+}
